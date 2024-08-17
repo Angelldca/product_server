@@ -8,6 +8,7 @@ import com.angelldca.product_service.service.dto.ProductDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService{
@@ -20,6 +21,7 @@ public class ProductService{
         this.mapper = mapper;
     }
 
+
    public Product createProduct(ProductDto p){
         return productRepository.save(mapper.map(p));
    }
@@ -28,6 +30,10 @@ public class ProductService{
     }
     public void delete(Long id){
          productRepository.deleteById(id);
+    }
+
+    public Optional<Product> findById(Long id){
+        return productRepository.findById(id);
     }
 
 }
