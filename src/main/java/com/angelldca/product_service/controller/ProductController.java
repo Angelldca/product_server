@@ -32,4 +32,11 @@ public class ProductController {
     public void deleteProduct (@PathVariable("id") Long id){
          productService.delete(id);
     }
+
+
+    @GetMapping("/msg")
+    public Object sendRabbit(){
+        return productService.messageRabit("mensaje enviado desde el servicio product");
+    }
+
 }
